@@ -52,6 +52,7 @@
       background-color: #202529;
       top: 50px;
       left: 0px;
+      
     }
     #nav-check:not(:checked) ~ .navbar-links {
       height: 0px;
@@ -84,7 +85,6 @@
     display: flex;
     justify-content: flex-end;
   }
-  
 
   
   header ul li {
@@ -93,13 +93,6 @@
     margin-left: 12px;
   }
   
-  /* header ul li:hover {
-    color: #C7C8C9;
-  } */
-  
-  /* header form {
-    width: 19%;
-  } */
   
   header input {
     font-size: 0.9em;
@@ -397,18 +390,10 @@ header nav:nth-of-type(1) {
   justify-content: end;
 }
 
+.navbar-links a{
+  border-bottom: 1px solid #e1e4e8;
 }
 
-
-/* .navbar{
-  overflow: hidden;
-  display: flex;
-  width: 100%;
 }
-@media screen and (max-width: 600px) {
-  
-  .navbar form, nav ul li{
-    display: block;
-  }
-} */
+
 
