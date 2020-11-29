@@ -8,6 +8,60 @@
     height: 100vh;
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   }
+
+
+
+  .navbar-logo {
+    display: inline-block;
+    padding: 10px;
+  }
+  #nav-check, .nav-chlab {
+    display: none;
+  }
+  .navbar-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .navbar-links > a {
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+  }
+  .navbar-links > a:hover {
+    background-color: #555;
+  }
+  @media(max-width:600px) {
+    .nav-chlab {
+      display: inline-block;
+      float: right;
+      font-size: 28px;
+      max-height: 38px;
+      padding: 0px 10px;
+    }
+
+    .navbar-links, .navbar-links > a {
+      display: block;
+      width: 100%;
+    }
+    .navbar-links {
+      position: absolute;
+      transition: all 0.4s ease-in;
+      overflow-y: hidden;
+      background-color: #202529;
+      top: 50px;
+      left: 0px;
+    }
+    #nav-check:not(:checked) ~ .navbar-links {
+      height: 0px;
+    }
+    #nav-check:checked ~ .navbar-links {
+      height: calc(100vh - 50%);
+      overflow-y: auto;
+      padding: 12px;
+    }
+  }
   
   header {
     background: #202529;
@@ -16,7 +70,7 @@
     min-height: 75px;
     display: flex;
     align-items: center;
-    width: 100%;
+    /* width: 100%; */
     padding: 0px 23px;
   }
   
@@ -27,13 +81,11 @@
   
   header nav:nth-of-type(1) {
     width: 55%;
+    display: flex;
+    justify-content: flex-end;
   }
   
-  /* header ul {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  } */
+
   
   header ul li {
     display: inline-block;
@@ -41,28 +93,28 @@
     margin-left: 12px;
   }
   
-  header ul li:hover {
+  /* header ul li:hover {
     color: #C7C8C9;
-  }
+  } */
   
-  header form {
+  /* header form {
     width: 19%;
-  }
+  } */
   
   header input {
     font-size: 0.9em;
-    padding: 0.5em;
-    border: none;
-    background: #3C4044;
+    padding: 0.3em;
+    border: 1px solid #4c4c4c;
+    background: #3c404405;
     border-radius: 7px;
     width: 100%;
   }
   
-  header nav:nth-of-type(2) {
+  /* header nav:nth-of-type(2) {
     width: 20%;
     display: flex;
     justify-content: flex-end;
-  }
+  } */
   
   .nav-profile{
     width: 20px;
@@ -75,6 +127,11 @@
     color: #C7C8C9;
   }
   
+  .navbar-links a{
+    color: #fff;
+  }
+
+   
   main {
     display: flex;
     padding: 31px 31px;
@@ -85,6 +142,8 @@
     display: inline-block;
     padding: 1em;
     text-align: left;
+    position: relative;
+    top: -85px;
   }
   
   aside img {
@@ -166,24 +225,31 @@
   }
   
   .repo-nav {
-    display: block;
+    display: flex;
     width: 100%;
+    justify-content: center;
+    border-bottom: 1px solid #CBCFD5;
+    margin-top: 25px;
   }
   
   .repo-nav li {
     cursor: pointer;
     display: inline-block;
     padding: 1em;
-    margin-left: 1em;
-    border-bottom: 2px solid #CBCFD5;
+    /* margin-left: 1em; */
+    display: flex;
   }
-  
-  .repo-nav li:hover {
-    border-bottom-width: 3px;
+
+  .repo-nav li:hover, .repo-nav li:focus{
+    color: #000;
+    font-weight: bold;
   }
+
   
   .repo-nav li:nth-of-type(2) {
     border-bottom: 3px solid #DF570C;
+    color: #000;
+    font-weight: bold;
   }
 
   .repos-title {
@@ -257,6 +323,17 @@
   
   .seperator {
     margin: 1em 0;
+    background-color: #e1e4e8;
+    height: 1px;
+    border: none;
+  }
+
+  .repo-count{
+    position: relative;
+    border-radius: 50%;
+    background-color: #CBCFD5;
+    font-size: 12px;
+    padding: 2px 5px;
   }
   
   a {
@@ -277,12 +354,49 @@
       main aside {
         width: 100%;
         padding: 1em;
+        margin-top: 61px;
     }
 
     .repo-nav {
       display: flex;
       overflow-x: scroll;
+      margin: 12px;
   }
+
+  .nav-icon{
+    display: none;
+  }
+
+  .profile-wrap{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+   align-items: center;
+  }
+  .profile-wrap img{
+    width: 25%;
+    margin-right: 12px;
+  }
+
+  .section-mb{
+    margin-top: 91%;
+  }
+
+  github-logo {
+    margin: 0 0.5em 0 8.5em !important;
+    position: relative;
+    left: 121px;
+
+}
+
+header form input {
+  width: 100%;
+}
+
+header nav:nth-of-type(1) {
+  justify-content: end;
+}
+
 }
 
 

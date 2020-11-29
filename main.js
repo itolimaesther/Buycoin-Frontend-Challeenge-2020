@@ -1,8 +1,5 @@
-
-// let title = document.querySelector(".title");
 let description = document.getElementsByTagName("p");
-// let navProfileImage = document.querySelector(".icon-drop-nav > ul > li:last-child > img");
-// console.log(navProfileImage)
+
 
 fetch("https://api.github.com/graphql", {
   method: "POST",
@@ -123,6 +120,9 @@ fetch("https://api.github.com/graphql", {
     stats.classList.add('stats')
     repo.appendChild(stats)
 
+    let reproCount = document.querySelector('.repo-count')
+    reproCount.innerText = repoArray.length
+
 
     // color and languages
 
@@ -151,15 +151,12 @@ fetch("https://api.github.com/graphql", {
     forkIcon.classList.add('iconify')
     forkIcon.setAttribute("data-icon", "octicon:repo-forked-16")
     if(repoArray[i].parent === null){
-      forkText.innerText = 0
+      forkText.innerText = ''
     }else{
       secondList.appendChild(forkIcon)
       forkText.innerText = repoArray[i].parent.forkCount
     }
     secondList.appendChild(forkText)
-
-
-
 
 
 
@@ -169,7 +166,9 @@ fetch("https://api.github.com/graphql", {
     let licenceIcon = document.createElement('span')
     licenceIcon.classList.add('iconify')
     licenceIcon.setAttribute("data-icon", "octicon:law-16")
-    if(repoArray[i].licenseInfo === null){
+    //use an empty string for all lincenseInfo with value null 
+    //Display 
+    if(repoArray[i].licenseInfo === null){ 
       licenceText.innerText = ''
     }else{
       thirdList.appendChild(licenceIcon)
@@ -179,21 +178,34 @@ fetch("https://api.github.com/graphql", {
 
 
 
-    // let fourthList = document.createElement('li')
-    // fourthList.classList.add('stats-list')
-    // let updateText = document.createElement('span')
-    // fourthList.appendChild(updateText)
-    // updateText.innerText = repoArray[i].updatedAt
+    let fourthList = document.createElement('li')
+    fourthList.classList.add('stats-list')
+    let updateText = document.createElement('span')
+    let myDate = new Date(`${repoArray[i].pushedAt}`)
+    myDate.getTime()
+    let month = myDate.toLocaleString("default", { month: "short" }) //get the month in string
+    let day = myDate.getDay()
+    let fullDate = `${day}` +  " " + `${month}`
+    updateText.innerText = "Updated on " + `${fullDate}`
+    fourthList.appendChild(updateText)
 
 
 
     stats.appendChild(firstList)
     stats.appendChild(secondList)
     stats.appendChild(thirdList)
-    // stats.appendChild(fourthList)
+    stats.appendChild(fourthList)
 
   }
  
-
-
 });
+
+
+// Mobile Navbar
+
+let menuIcon = document.querySelector('.nav-chlab')
+let secondNav = document.querySelector('.section')
+
+menuIcon.addEventListener('click', function(){
+  secondNav.classList.toggle("section-mb")
+})
