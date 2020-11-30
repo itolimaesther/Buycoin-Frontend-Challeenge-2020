@@ -1,3 +1,5 @@
+
+
 let description = document.getElementsByTagName("p");
 
 
@@ -6,7 +8,7 @@ fetch("https://api.github.com/graphql", {
   headers: {
     "Content-Type": "application/json",
     Accept: "application/json",
-    Authorization: `Bearer 6afcb1ef98adb3da30e5c9db538127afbdbe8f97`,
+    Authorization: "Bearer fb2f9cf04aa08c17e08e3bda4e360c3cc2b326f0",
   },
 
   body: JSON.stringify({
@@ -209,3 +211,6 @@ let secondNav = document.querySelector('.section')
 menuIcon.addEventListener('click', function(){
   secondNav.classList.toggle("section-mb")
 })
+
+
+require('dotenv').config();
