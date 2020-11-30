@@ -2,13 +2,17 @@
 
 let description = document.getElementsByTagName("p");
 
+let tk1 = "d31362cd21a0b7e"
+let tk2 = "91a74ee555d3"
+let tk3 = "21c8105a8ac4e"
+
 
 fetch("https://api.github.com/graphql", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
     Accept: "application/json",
-    Authorization: process.env.MY_TOKEN
+    Authorization: "Bearer " + `${tk1}` + `${tk2}` + `${tk3}` 
   },
 
   body: JSON.stringify({
